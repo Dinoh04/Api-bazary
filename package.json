@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "dev": "nodemon src/main.ts"
+   "dev": "nodemon src/main.ts",
+   "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+   "build": "rm -rf dist && npx tsc",
+   "start": "npm run build && node dist/main.js",
+   "format": "prettier --write .",
+   "format:check": "prettier --check .",
+   "create-database": "npx prisma migrate deploy && npx prisma generate"
   },
   "keywords": [],
   "author": "",
